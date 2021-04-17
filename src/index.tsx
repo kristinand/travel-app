@@ -1,22 +1,20 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import App from "./App";
-import reportWebVitals from "./reportWebVitals";
-import "normalize.css";
-import { BrowserRouter } from "react-router-dom";
-import { Provider } from "react-redux";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+import 'normalize.css';
 import './i18n';
-import store from "./redux/store";
+import store from './redux/store';
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <App />
     </Provider>
   </React.StrictMode>,
-  document.getElementById("root")
+  // eslint-disable-next-line comma-dangle
+  document.getElementById('root')
 );
 
 reportWebVitals();
