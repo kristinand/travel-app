@@ -1,7 +1,7 @@
 import React from "react";
 import {MapContainer, TileLayer, Marker,Polygon} from 'react-leaflet';
 import L from 'leaflet';
-import { polygon } from "../utils/polygons";
+import polygon from "../utils/polygons";
 import 'leaflet-fullscreen/dist/Leaflet.fullscreen'
 import 'leaflet-fullscreen/dist/leaflet.fullscreen.css'
 
