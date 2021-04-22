@@ -1,5 +1,5 @@
-import React from "react";
-import classes from "./About.module.scss";
+import React from 'react';
+import classes from './About.module.scss';
 
 interface Props {
   imageURL: string;
@@ -9,14 +9,15 @@ interface Props {
 }
 
 function About(props: Props) {
+  const { country, capital, desc, imageURL } = props;
   return (
     <div className={classes.about}>
       <div className={classes.descContainer}>
-        <h2 className="title">{`${props.country}, ${props.capital}`}</h2>
-        <p className={classes.desc}>{props.desc}</p>
+        <h2 className="title">{`${country}, ${capital}`}</h2>
+        <p className={classes.desc}>{desc}</p>
       </div>
       <div className={classes.imgContainer}>
-        <img className={classes.img} src={props.imageURL + "?fit=crop&h=500"} alt={props.capital} />
+        <img className={classes.img} src={imageURL.concat('?fit=crop&h=500')} alt={capital} />
       </div>
     </div>
   );
