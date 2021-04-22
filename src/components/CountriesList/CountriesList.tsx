@@ -19,7 +19,7 @@ const CountryCard = (props: Props) => {
           <Link to={`/${country.ISOCode}`} key={country.ISOCode}>
             <div className={classes.country}>
               <img className={classes.countryImage} src={`${country.imageURL}?fit=crop&w=500`} alt={country.country} />
-              <span className={classes.countryTitle}>{country.country}</span>
+              <div className={classes.countryTitle}>{country.country}</div>
             </div>
           </Link>
         ))}

@@ -33,7 +33,6 @@
   &:hover {
     .countryImage {
       filter: saturate(100%);
-      transform: scale(1.1);
     }
   }
 }
@@ -42,17 +41,18 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: saturate(25%);
-  transition: all 0.5s ease-in-out;
+  filter: saturate(10%);
+  transition: filter 0.25s ease-in-out;
 }
 
 .countryTitle {
+  width: 100%;
   position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateY(-50%);
   font-size: 1.2em;
   color: #fff;
+  text-align: center;
   text-shadow: 0px 4px 4px $text-color;
-  transition: all 0.5s ease-in-out;
+  background-color: rgba(248, 248, 234, 0.4);
 }
