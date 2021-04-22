@@ -1,15 +1,21 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500&family=Manrope:wght@200;300&display=swap");
-
-$light: hsl(27, 42%, 68%);
-$normal: hsl(27, 42%, 55%);
-$white: hsla(0, 0%, 100%, 0.8);
-$shadow: hsla(27, 12%, 28%, 0.65);
+@import '../../styles/config.scss';
 
 .about {
   display: grid;
-  grid-template-areas: "image desc";
-  grid-template-columns: 2fr 3fr;
-  gap: 2rem;
+  grid-template-areas: 'image widgets' 'desc desc';
+  grid-template-columns: 4fr 2fr;
+  gap: 1em;
+
+  @include sm {
+    display: block;
+  }
+}
+
+.widgets {
+  grid-area: widgets;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .imgContainer {
@@ -17,9 +23,9 @@ $shadow: hsla(27, 12%, 28%, 0.65);
   display: flex;
   justify-content: center;
   align-items: center;
-  background: $white;
-  background: linear-gradient(148deg, $light 0%, $white 30%, $white 70%, $light 100%);
-  filter: drop-shadow(0.3rem 0.3rem 0.3rem $shadow);
+  background: $white08;
+  background: linear-gradient(148deg, $light 0%, $white08 30%, $white08 70%, $light 100%);
+  filter: drop-shadow(0.3em 0.3em 0.3em $shadow);
   img {
     width: 100%;
     max-height: 500px;
@@ -31,36 +37,18 @@ $shadow: hsla(27, 12%, 28%, 0.65);
   grid-area: desc;
   align-self: center;
   background: linear-gradient(148deg, $light 0%, $normal 30%, $normal 70%, $light 100%);
-  padding: 1.25rem 2.5rem;
+  padding: 0.75em 1em;
   height: 100%;
-  font-family: "Montserrat";
   font-weight: 200;
-  font-size: 1.5rem;
   color: white;
-  filter: drop-shadow(0.3rem 0.3rem 0.3rem $shadow);
+  filter: drop-shadow(0.3em 0.3em 0.3em $shadow);
 
   h2 {
-    font-size: 2em;
     font-weight: 200;
+    margin-bottom: 0.5em;
   }
-}
 
-@media (max-width: 800px) {
-  .about {
-    display: block;
-  }
-  .descContainer {
-    margin-bottom: 2em;
-    font-size: 1.2rem;
-  }
-}
-
-@media (max-width: 400px) {
-  .about {
-    display: block;
-  }
-  .descContainer {
-    margin-bottom: 2em;
-    font-size: 3rem;
+  @include sm {
+    margin-top: 2em;
   }
 }

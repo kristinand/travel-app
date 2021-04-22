@@ -11,7 +11,6 @@ import { Map } from '../../components/Map';
 import Header from '../Header/Header';
 import Footer from '../../components/Footer/Footer';
 import About from '../../components/About/About';
-import Widget from '../../components/Widgets/Widgets';
 import Video from '../../components/Video/Video.js';
 
 interface paramTypes {
@@ -53,8 +52,7 @@ const Countries = () => {
       <div className="content-wrapper">
         <div className="content">
           <Header inputVisible={false} />
-          <Widget lang={lang} country={country} />
-          <About imageURL={country.imageURL} country={country.country} capital={country.capital} desc={country.desc} />
+          <About country={country} lang={lang} />
 
           <div className="gallery-block">
             <h2 className="subtitle">{t('title-sights')}</h2>

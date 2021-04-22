@@ -27,4 +27,4 @@ export const getCountryDatetime = (lang: string = 'RU', timeZone: string) => {
     second: 'numeric',
   });
   return today;
-}
+};

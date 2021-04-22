@@ -6,7 +6,7 @@ import classes from './Widget.module.scss';
 
 interface Props {
   lang: string;
-  country: any;
+  country: {currency: string, timezone: string, coordinates: number[]};
 }
 
 function Widgets(props: Props) {
@@ -40,7 +40,7 @@ function Widgets(props: Props) {
   }, [country.currency]);
 
   return (
-    <div className={classes.widgets}>
+    <>
       <div className={[classes.currency, classes.widget].join(' ')}>
         <span>
           {Object.keys(currency).map(
@@ -70,7 +70,7 @@ function Widgets(props: Props) {
       <div className={[classes.time, classes.widget].join(' ')}>
         <Clock lang={lang} timeZone={country.timezone} />
       </div>
-    </div>
+    </>
   );
 }
 
