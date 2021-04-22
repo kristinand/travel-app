@@ -20,22 +20,20 @@ const Main = () => {
   }, [i18n, lang]);
 
   return (
-    <div className={classes.bg}>
+    <>
+      <Clouds />
       <Header inputVisible />
 
-      <div className="container body">
-        <Clouds />
-        <main className={classes.main}>
-          <div className={classes.titleWrapper}>
-            <div>{t('title')}</div>
-            <div className={classes.subtitle}>{t('subtitle')}</div>
-          </div>
-          <CountriesList title={t('title-where')} countries={searchValue.length ? filteredCountries : countriesMass} />
-        </main>
-      </div>
+      <main className={classes.main}>
+        <div className={classes.titleWrapper}>
+          <div>{t('title')}</div>
+          <div className={classes.subtitle}>{t('subtitle')}</div>
+        </div>
+        <CountriesList title={t('title-where')} countries={searchValue.length ? filteredCountries : countriesMass} />
+      </main>
 
       <Footer />
-    </div>
+    </>
   );
 };
 

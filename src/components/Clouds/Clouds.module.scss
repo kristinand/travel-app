@@ -1,5 +1,17 @@
+.bg {
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  right: -10%;
+  height: 75vh;
+  background-image: url('../../assets/img/background.jpg');
+  background-size: cover;
+  box-shadow: 0 0 1em 1em white inset;
+  z-index: -1;
+}
+
 .clouds {
-	position: fixed;
+	position: absolute;
 	height: auto;
 	animation: moving 3s ease-in-out 0s infinite;
 	user-select: none;
@@ -7,19 +19,22 @@
 
 .cloud1 {
 	width: 45vw;
-	top: 53vh;
+  min-width: 200px;
+	top: 40vmin;
 	left: 30vw;
 }
 
 .cloud2 {
 	width: 21vw;
-	top: 44vh;
-	left: 10vw;
+  min-width: 100px;
+	top: 33vmin;
+	left: 18vw;
 }
 
 .cloud3 {
 	width: 24vw;
-	top: 46vh;
+  min-width: 50px;
+	top: 33vmin;
 	left: 66vw;
 }
 
@@ -29,7 +44,7 @@
   }
 
 	50% {
-		transform: translateY(2%);
+		transform: translateY(5%);
 	}
 
   100% {

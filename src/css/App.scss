@@ -1,5 +1,4 @@
 @import '../styles/config.scss';
-$dark-grey: #2e2b2b;
 
 .content-wrapper {
   display: flex;
@@ -11,14 +10,8 @@ $dark-grey: #2e2b2b;
   max-width: $max-width;
 }
 
-.container {
-  max-width: 172rem;
-}
-
 @media (max-width: 400px) {
   .app {
-    background-size: 400px 150px;
-    position: relative;
     &::before {
       content: url('../assets/img/vecror-wave-425.png');
       top: 85rem;
@@ -29,37 +22,6 @@ $dark-grey: #2e2b2b;
       bottom: 85rem;
       position: absolute;
       z-index: 0;
-    }
-  }
-  .header {
-    .logo {
-      max-width: 24rem;
-    }
-    .side-block {
-      .user-img {
-        width: 6rem;
-        margin-left: 2rem;
-      }
-      .login-button {
-        font-size: 3rem;
-      }
-      .select-lang {
-        .css-ojy93d-container {
-          .css-ttdjdx-control {
-            height: 6rem;
-            width: 11rem;
-            font-size: 3rem;
-          }
-        }
-      }
-      .search-input {
-        @include fonts(Montserrat, 200, 3rem);
-        max-width: 20rem;
-        padding: 0.9rem 0.375rem;
-      }
-      .search-button {
-        @include fonts(Montserrat, 200, 3rem);
-      }
     }
   }
 }
