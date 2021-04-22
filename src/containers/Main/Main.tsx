@@ -5,7 +5,7 @@ import classes from './Main.module.scss';
 import { IState } from '../../redux/reducers/reducerTypes';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import CountryCard from '../../components/CountryCard';
+import CountriesList from '../../components/CountriesList/CountriesList';
 import Clouds from '../../components/Clouds/Clouds';
 
 const Main = () => {
@@ -30,14 +30,7 @@ const Main = () => {
             <div>{t('title')}</div>
             <div className={classes.subtitle}>{t('subtitle')}</div>
           </div>
-          <div className={classes.countriesWrapper}>
-            <div className={classes.countriesTitle}>{t('title-where')}</div>
-            <div className={classes.countries}>
-              {searchValue.length
-                ? filteredCountries.map((country) => <CountryCard key={country.ISOCode} data={country} />)
-                : countriesMass.map((country) => <CountryCard key={country.ISOCode} data={country} />)}
-            </div>
-          </div>
+          <CountriesList title={t('title-where')} countries={searchValue.length ? filteredCountries : countriesMass} />
         </main>
       </div>
 
