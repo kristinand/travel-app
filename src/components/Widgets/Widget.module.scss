@@ -1,56 +1,28 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;&family=Manrope:wght@200;300&display=swap");
-
-$light: hsl(27, 42%, 68%);
-$normal: hsl(27, 42%, 55%);
-$shadow: hsla(27, 12%, 28%, 0.65);
-
-@mixin widget() {
-  background: linear-gradient(148deg, $light 0%, $normal 30%, $normal 70%, $light 100%);
-  color: white;
-  padding: 1.25rem 2.5rem;
-  filter: drop-shadow(0.3rem 0.3rem 0.3rem $shadow);
-}
-
-@mixin fonts($family, $weight, $size) {
-  font-family: $family;
-  font-weight: $weight;
-  font-size: $size;
-}
+@import '../../styles/config.scss';
 
 .widgets {
-  margin-bottom: 4rem;
+  margin-bottom: 4em;
   height: auto;
   display: grid;
-  grid-gap: 2rem;
-	grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 1.2em;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  @include sm {
+    grid-template-columns: 1fr;
+  }
 }
 
 .widget {
+  height: 100%;
+  padding: 0.5em 0.75em;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex: 1;
-  height: 100%;
   text-align: left;
-  @include widget();
-  @include fonts(Manrope, 200, 1.5rem);
+  filter: drop-shadow(0.3em 0.3em 0.3em $shadow);
+  background: linear-gradient(148deg, $light 0%, $normal 30%, $normal 70%, $light 100%);
 }
 
 .weatherIcon {
   margin-right: 1em;
-}
-
-@media (max-width: 800px) {
-  .widget {
-    @include fonts(Manrope, 200, 1.2rem);
-  }
-}
-
-@media (max-width: 400px) {
-  .widget {
-    @include fonts(Manrope, 200, 3rem);
-  }
-  .weatherIcon {
-    width: 30px;
-  }
 }
