@@ -16,7 +16,7 @@ const CountryCard = (props: Props) => {
       <div className={classes.title}>{title}</div>
       <div className={classes.countries}>
         {countries.map((country) => (
-          <Link to={`/${country.ISOCode}`}>
+          <Link to={`/${country.ISOCode}`} key={country.ISOCode}>
             <div className={classes.country}>
               <img className={classes.countryImage} src={`${country.imageURL}?fit=crop&w=500`} alt={country.country} />
               <span className={classes.countryTitle}>{country.country}</span>

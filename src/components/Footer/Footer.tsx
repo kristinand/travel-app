@@ -7,7 +7,7 @@ const Footer = () => (
     <div className={classes.footer}>
       <span>Created by: </span>
       {githubProfiles.map((profile) => (
-        <a href={`https://github.com/${profile}`} target="_blank" rel="noreferrer">
+        <a href={`https://github.com/${profile}`} key={profile} target="_blank" rel="noreferrer">
           @
           {profile}
         </a>
