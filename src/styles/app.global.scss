@@ -1,0 +1,31 @@
+@import './config.scss';
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: $font;
+  color: $text-color;
+}
+
+:root {
+  font-size: 18px;
+	@include xl {
+		font-size: 14px;
+	}
+	@include lg {
+		font-size: 13px;
+	}
+	@include md {
+		font-size: 10px;
+	}
+	@include sm {
+		font-size: 9px;
+	}
+}
+
+select {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}

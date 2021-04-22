@@ -1,0 +1,48 @@
+@import '../../styles/config.scss';
+
+.bg {
+  background: url('../../assets/img/pic.png') no-repeat;
+  background-size: 1920px 770px;
+  overflow: hidden;
+}
+
+.main {
+  margin: 0 auto;
+  width: 90vw;
+  max-width: $max-width;
+}
+
+.titleWrapper {
+  max-width: 60%;
+  font-size: 5rem;
+  font-weight: 400;
+
+  .subtitle {
+    margin-top: 0.5em;
+    font-size: 0.7em;
+  }
+}
+
+.countriesWrapper {
+  position: relative;
+  margin-top: 5rem;
+}
+
+.countriesTitle {
+  margin: 1em 0;
+  width: 100%;
+  text-align: center;
+  font-size: 5rem;
+}
+
+.countries {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(auto-fill, 1fr);
+  gap: 5%;
+
+  @include sm {
+    grid-template-columns: 1fr;
+    gap: 2.5%;
+  }
+}

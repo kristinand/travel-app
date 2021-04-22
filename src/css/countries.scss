@@ -1,35 +1,5 @@
 @import "~react-image-gallery/styles/scss/image-gallery.scss";
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;&family=Manrope:wght@200;300&display=swap");
-//colors:
-$dark-grey: #c0baba;
-$normal: hsl(27, 42%, 55%);
-$shadow: hsla(27, 12%, 28%, 0.65);
-
-@mixin fonts($family, $weight, $size) {
-  font-family: $family;
-  font-weight: $weight;
-  font-size: $size;
-}
-
-@mixin flex($direction, $content, $align) {
-  flex-direction: $direction;
-  align-items: $align;
-  justify-content: $content;
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  justify-content: center;
-}
-
-:root {
-  font-size: 16px;
-}
-
-body {
-  background-image: url("../assets/img/back-full.jpg");
-}
+@import '../styles/config.scss';
 
 .countries {
   display: flex;

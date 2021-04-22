@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-// import classes from './Main.module.scss';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import classes from './Main.module.scss';
 import { IState } from '../../redux/reducers/reducerTypes';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
@@ -20,19 +20,19 @@ const Main = () => {
   }, [i18n, lang]);
 
   return (
-    <div className="app">
+    <div className={classes.bg}>
       <Header inputVisible />
 
       <div className="container body">
         <Clouds />
-        <main className="body">
-          <div className="body-title">
-            <h1 className="title">{t('title')}</h1>
-            <h2 className="subtitle">{t('subtitle')}</h2>
+        <main className={classes.main}>
+          <div className={classes.titleWrapper}>
+            <div>{t('title')}</div>
+            <div className={classes.subtitle}>{t('subtitle')}</div>
           </div>
-          <div className="countries-block">
-            <h3 className="countries-title">{t('title-where')}</h3>
-            <div className="countries-grid">
+          <div className={classes.countriesWrapper}>
+            <div className={classes.countriesTitle}>{t('title-where')}</div>
+            <div className={classes.countries}>
               {searchValue.length
                 ? filteredCountries.map((country) => <CountryCard key={country.ISOCode} data={country} />)
                 : countriesMass.map((country) => <CountryCard key={country.ISOCode} data={country} />)}

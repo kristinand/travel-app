@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Route, Switch, BrowserRouter } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import './css/App.scss';
+import './styles/app.global.scss';
 import { setCountriesThunk } from './redux/thunk/thunk';
 import { IState } from './redux/reducers/reducerTypes';
 import Main from './containers/Main/Main';
