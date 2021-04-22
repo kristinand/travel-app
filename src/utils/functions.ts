@@ -15,3 +15,16 @@ export const nameRateArray = (array: IRatingResponse[]) => {
 };
 
 export const getRandomNumber = (min: number, max: number) => Math.round(Math.random() * (max - min) + min);
+
+export const getCountryDatetime = (lang: string = 'RU', timeZone: string) => {
+  const today = new Date().toLocaleString(lang, {
+    timeZone,
+    day: 'numeric',
+    month: 'short',
+    weekday: 'short',
+    hour: 'numeric',
+    minute: 'numeric',
+    second: 'numeric',
+  });
+  return today;
+}

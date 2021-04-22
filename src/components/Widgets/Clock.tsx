@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
+import { getCountryDatetime } from '../../utils/functions';
 
 interface Props {
   lang: string;
@@ -10,39 +11,34 @@ interface State {
 }
 
 class Clock extends Component<Props, State> {
-  state = {
-    datetime: this.getCountryDatetime(this.props.lang, this.props.timeZone),
-  };
-
   intervalId: any;
+
+  constructor(props: Props) {
+    super(props);
+
+    this.state = {
+      datetime: getCountryDatetime(props.lang, props.timeZone),
+    };
+  }
+
   componentDidMount() {
     this.intervalId = setInterval(this.tick, 1000);
   }
+
   componentWillUnmount() {
     clearInterval(this.intervalId);
   }
 
   tick = () => {
+    const { lang, timeZone } = this.props;
     this.setState({
-      datetime: this.getCountryDatetime(this.props.lang, this.props.timeZone),
+      datetime: getCountryDatetime(lang, timeZone),
     });
   };
 
-  getCountryDatetime(lang: string = "RU", timeZone: string) {
-    const today = new Date().toLocaleString(lang, {
-      timeZone,
-      day: "numeric",
-      month: "short",
-      weekday: "short",
-      hour: "numeric",
-      minute: "numeric",
-      second: "numeric",
-    });
-    return today;
-  }
-
   render() {
-    return <span>{this.state.datetime}</span>;
+    const { datetime } = this.state;
+    return <span>{datetime}</span>;
   }
 }
 
