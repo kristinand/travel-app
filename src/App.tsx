@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import { Route, Switch, BrowserRouter } from 'react-router-dom';
-import './css/App.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import Main from './pages/Main';
-import Countries from './pages/Countries';
+import './css/App.scss';
 import { setCountriesThunk } from './redux/thunk/thunk';
-import Signup from './components/Auth/Signup';
-import Login from './components/Auth/Login';
 import { IState } from './redux/reducers/reducerTypes';
+import Main from './containers/Main/Main';
+import Country from './containers/Country/Country';
+import Signup from './containers/Auth/Signup';
+import Login from './containers/Auth/Login';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -22,7 +22,7 @@ const App = () => {
       <Switch>
         <Route path="/join" component={Signup} />
         <Route path="/login" component={Login} />
-        <Route path="/countries/:ISOCode" component={Countries} />
+        <Route path="/:ISOCode" component={Country} />
         <Route exact path="/" component={Main} />
       </Switch>
     </BrowserRouter>

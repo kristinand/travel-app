@@ -3,7 +3,7 @@ import classes from "./Auth.module.scss";
 import { Link, useHistory } from "react-router-dom";
 import { Button, Input } from "@material-ui/core";
 import { Api } from "../../api/api";
-import Airplane from "../Airplane/Airplane";
+import Airplane from "../../components/Airplane/Airplane";
 import validation from "../../utils/validation";
 import { useDispatch, useSelector } from "react-redux";
 import { setUserData } from "../../redux/actions/actions";
