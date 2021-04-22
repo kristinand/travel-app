@@ -170,15 +170,6 @@
   }
 }
 @media (max-width: 1360px) {
-  :root {
-    font-size: 12px;
-  }
-  .app {
-    background-size: 1360px 550px;
-  }
-  main {
-    margin: 0;
-  }
   .countries {
     .image-gallery-container {
       .image-gallery-title {
@@ -193,9 +184,6 @@
 }
 
 @media (max-width: 850px) {
-  :root {
-    font-size: 9px;
-  }
   .app {
     background-size: 850px 450px;
   }
@@ -212,9 +200,6 @@
 }
 
 @media (max-width: 400px) {
-  :root {
-    font-size: 3px;
-  }
   .app {
     background-size: 450px 200px;
   }

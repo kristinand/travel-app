@@ -9,19 +9,19 @@
 }
 
 :root {
-  font-size: 18px;
+  font-size: 40px;
 	@include xl {
-		font-size: 14px;
+		font-size: 35px;
 	}
 	@include lg {
-		font-size: 13px;
+		font-size: 30px;
 	}
 	@include md {
-		font-size: 10px;
+		font-size: 25px;
 	}
-	@include sm {
-		font-size: 9px;
-	}
+  @include sm {
+    font-size: 20px;
+  }
 }
 
 select {
