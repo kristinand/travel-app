@@ -91,41 +91,7 @@ $dark-grey: #2e2b2b;
   }
 }
 
-.footer {
-  background: #f5e9e0;
-  margin-top: 7rem;
-}
-.footer-content {
-  margin-left: auto;
-  margin-right: auto;
-  width: 90vw;
-  max-width: $max-width;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 
-  .git-block {
-    padding: 1.9rem 0;
-    a {
-      @include fonts(Roboto, 400, 1.25rem);
-      text-decoration: none;
-      color: black;
-      margin-left: 10px;
-    }
-  }
-  .course-block {
-    display: flex;
-    margin-right: 1.25rem;
-    //align-items: center;
-    font-size: 1.25rem;
-
-    .course-link {
-      display: flex;
-      text-decoration: none;
-      color: #2e2b2b;
-    }
-  }
-}
 @media (max-width: 400px) {
   .app {
     background-size: 400px 150px;

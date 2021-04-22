@@ -200,15 +200,6 @@
 }
 
 @media (max-width: 400px) {
-  .app {
-    background-size: 450px 200px;
-  }
-  .body .body-title .subtitle {
-    @include fonts(Manrope, 300, 10px);
-  }
-  .body .countries-block .countries-grid .card-text {
-    font-size: 14px !important;
-  }
   .countries {
     .img-block img {
       width: 90%;

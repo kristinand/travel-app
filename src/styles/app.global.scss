@@ -1,31 +1,36 @@
 @import './config.scss';
 
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	font-family: $font;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $font;
   color: $text-color;
 }
 
 :root {
   font-size: 40px;
-	@include xl {
-		font-size: 35px;
-	}
-	@include lg {
-		font-size: 30px;
-	}
-	@include md {
-		font-size: 25px;
-	}
+  @include xl {
+    font-size: 35px;
+  }
+  @include lg {
+    font-size: 30px;
+  }
+  @include md {
+    font-size: 25px;
+  }
   @include sm {
     font-size: 20px;
   }
 }
 
 select {
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+a {
+  text-decoration: none;
+  color: $text-color;
 }

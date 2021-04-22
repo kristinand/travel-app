@@ -1,0 +1,28 @@
+@import '../../styles/config.scss';
+
+.footerWrapper {
+  background: #f5e9e0;
+  margin-top: 7rem;
+}
+
+.footer {
+  margin: 0 auto;
+  width: 90vw;
+  max-width: $max-width;
+  display: flex;
+  gap: 1em;
+  font-size: 0.5rem;
+  line-height: 3em;
+}
+
+.course {
+  margin-left: auto;
+}
+
+.courseImage {
+  margin-right: 0.5em;
+  position: relative;
+  top: 0.15em;
+  width: 50px;
+  height: auto;
+}

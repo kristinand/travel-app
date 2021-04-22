@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import classes from './Main.module.scss';
 import { IState } from '../../redux/reducers/reducerTypes';
 import Header from '../../components/Header';
-import Footer from '../../components/Footer';
+import Footer from '../../components/Footer/Footer';
 import CountriesList from '../../components/CountriesList/CountriesList';
 import Clouds from '../../components/Clouds/Clouds';
 
