@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next';
 import { IState } from '../../redux/reducers/reducerTypes';
 import { StarRating } from '../../components/StarRating';
 import { Map } from '../../components/Map';
-import Header from '../../components/Header';
+import Header from '../Header/Header';
 import Footer from '../../components/Footer/Footer';
 import About from '../../components/About/About';
 import Widget from '../../components/Widgets/Widgets';

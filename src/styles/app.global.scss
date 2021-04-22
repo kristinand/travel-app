@@ -14,13 +14,13 @@
     font-size: 35px;
   }
   @include lg {
-    font-size: 30px;
-  }
-  @include md {
     font-size: 25px;
   }
-  @include sm {
+  @include md {
     font-size: 20px;
+  }
+  @include sm {
+    font-size: 14px;
   }
 }
 
@@ -35,9 +35,32 @@ a {
   color: $text-color;
 }
 
-
-button, input {
+button,
+input,
+input::placeholder,
+.MuiInputBase-root.MuiInput-root.MuiInput-underline {
   font-family: $font !important;
   font-weight: 400 !important;
   font-size: 1em !important;
+}
+
+input::placeholder {
+  text-transform: uppercase;
+}
+
+.MuiSelect-root.MuiSelect-select.MuiSelect-selectMenu {
+  padding-right: 1em;
+}
+.MuiSvgIcon-root.MuiSelect-icon {
+  font-size: 1em !important;
+  top: auto;
+}
+
+.MuiInput-underline:after {
+  border-color: $text-color !important;
+}
+
+.MuiButtonBase-root.MuiButton-root.MuiButton-text {
+  line-height: 1em;
+  padding: 0.3em;
 }

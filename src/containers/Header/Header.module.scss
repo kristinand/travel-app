@@ -1,0 +1,31 @@
+@import '../../styles/config.scss';
+
+.header {
+  margin: 1em auto;
+  width: 90vw;
+  max-width: $max-width;
+  font-size: 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.logoLink {
+  margin-right: auto;
+}
+
+.logo {
+  width: 15em;
+  max-width: 200px;
+  height: auto;
+}
+
+.search {
+  width: 8em;
+  font-size: inherit !important;
+}
+
+.userImage {
+  width: 1.6em;
+  margin-left: 1em;
+}
