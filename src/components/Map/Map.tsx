@@ -15,8 +15,8 @@ const Map = ({ coords, code, title }: Props) => {
   const multiPolygon: any = polygon(code);
 
   return (
-    <div className={classes.map}>
-      <h2 className={classes.title}>{title}</h2>
+    <div id="map" className={classes.map}>
+      <a href="#map" className={classes.title}>{title}</a>
       <MapContainer
         className={classes.mapContainer}
         fullscreenControl

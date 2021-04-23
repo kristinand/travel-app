@@ -25,8 +25,8 @@ const Main = () => {
       <Header inputVisible />
 
       <main className={classes.main}>
-        <div className={classes.titleWrapper}>
-          <div>{t('title')}</div>
+        <div id={t('title')} className={classes.titleWrapper}>
+          <a href={t('title')}>{t('title')}</a>
           <div className={classes.subtitle}>{t('subtitle')}</div>
         </div>
         <CountriesList title={t('title-where')} countries={searchValue.length ? filteredCountries : countriesMass} />

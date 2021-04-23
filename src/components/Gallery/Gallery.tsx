@@ -32,8 +32,8 @@ const Gallery = (props: Props) => {
   }));
 
   return (
-    <div className={classes.gallery}>
-      <h2 className={classes.title}>{title}</h2>
+    <div id="gallery" className={classes.gallery}>
+      <a href="#gallery" className={classes.title}>{title}</a>
       <ImageGallery items={images} />
     </div>
   );
