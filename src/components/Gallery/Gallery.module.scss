@@ -2,8 +2,42 @@
 
 .gallery {
   margin-top: 3em;
+  height: 100vh;
 }
 
 .title {
   @include title;
+}
+
+.galleryContainer {
+  height: 100%;
+  background-color: #fff;
+}
+
+.galleryImage {
+  position: relative;
+  top: 6vh;
+  height: 80vh;
+  width: 100%;
+  object-fit: cover;
+}
+
+
+.galleryTitle {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  line-height: 2em;
+}
+
+.galleryDescription {
+  padding: 0.4em 3em;
+  position: absolute;
+  bottom: 0;
+  font-size: 0.8em;
+  line-height: 1;
+  white-space: normal;
+  text-align: left;
+  background: $bgTextColor;
 }

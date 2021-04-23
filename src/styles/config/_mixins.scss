@@ -37,4 +37,9 @@
   font-weight: 400;
   font-size: 1.6rem;
   text-align: center;
+  transition: color 0.5s;
+
+  &:hover {
+    color: $normal;
+  }
 }

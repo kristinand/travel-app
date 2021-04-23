@@ -1,0 +1,57 @@
+@import '../../styles/config.scss';
+
+.rating {
+  font-size: 1.2em !important;
+  position: absolute;
+  top: 0;
+  left: auto;
+  right: 0;
+}
+
+.otherContainer {
+  position: absolute;
+  margin: 1.5em 0;
+  padding: 0.5em 0;
+  top: 0;
+  left: auto;
+  right: 0;
+  font-size: 1em;
+  z-index: 100;
+}
+
+.toggleBtn {
+  margin-bottom: 1px;
+  width: 100%;
+  border: 0;
+  background-color: $bgTextColor;
+  outline: none;
+  cursor: pointer;
+  transition: color 0.5s;
+  &:hover,
+  &:focus {
+    color: $normal;
+  }
+}
+
+.otherRatings {
+  padding-top: 0.5em;
+  padding-left: 0.1em;
+  color: white;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 0.5em;
+  background-color: $bgTextColor;
+}
+
+.personRating {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  line-height: 1;
+  gap: 0.2em;
+}
+
+.hidden {
+  visibility: hidden;
+}
