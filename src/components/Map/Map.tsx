@@ -4,6 +4,7 @@ import polygon from '../../utils/polygons';
 import 'leaflet-fullscreen/dist/Leaflet.fullscreen';
 import 'leaflet-fullscreen/dist/leaflet.fullscreen.css';
 import classes from './Map.module.scss';
+import { mainColor } from '../../utils/constants';
 
 type Props = {
   coords: any;
@@ -16,20 +17,16 @@ const Map = ({ coords, code, title }: Props) => {
 
   return (
     <div id="map" className={classes.map}>
-      <a href="#map" className={classes.title}>{title}</a>
-      <MapContainer
-        className={classes.mapContainer}
-        fullscreenControl
-        scrollWheelZoom={false}
-        center={coords}
-        zoom={5}
-      >
+      <a href="#map" className={classes.title}>
+        {title}
+      </a>
+      <MapContainer className={classes.mapContainer} fullscreenControl scrollWheelZoom={false} center={coords} zoom={5}>
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         <Marker position={coords} />
-        <Polygon pathOptions={{ color: '#bc875c' }} positions={multiPolygon} />
+        <Polygon pathOptions={{ color: mainColor }} positions={multiPolygon} />
       </MapContainer>
     </div>
   );
