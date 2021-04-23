@@ -8,7 +8,6 @@ function Airplane() {
   const planesRef = useRef<HTMLDivElement | null>(null);
   let reqId: number;
   const [planes, setPlanes] = useState<HTMLCollection | []>([]);
-  const windowWidth = window.innerWidth;
 
   useEffect(() => {
     setPlanes(planesRef.current!.children);
@@ -33,6 +32,7 @@ function Airplane() {
   };
 
   const animatePlane = (plane: HTMLImageElement) => {
+    const windowWidth = window.innerWidth;
     const planeParams = plane.getBoundingClientRect();
     const speed = {
       x: planeParams.width / 25,
