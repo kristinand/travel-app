@@ -1,6 +1,6 @@
 import React from 'react';
 import ImageGallery from 'react-image-gallery';
-import StarRating from '../../containers/AttractionsRating/AttractionsRating';
+import AttractionsRating from '../../containers/AttractionsRating/AttractionsRating';
 import classes from './Gallery.module.scss';
 import { IAttractions } from '../../redux/reducers/reducerTypes';
 
@@ -17,7 +17,7 @@ const Gallery = (props: Props) => {
       <img className={classes.galleryImage} src={item.original} alt="img" />
       <div className={classes.galleryTitle}>{item.originalTitle}</div>
       <div className={classes.galleryDescription}>{item.description}</div>
-      <StarRating id={item.id} />
+      <AttractionsRating id={item.id} />
     </div>
   );
 
