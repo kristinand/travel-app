@@ -25,7 +25,7 @@
   align-items: center;
   background: $white08;
   background: linear-gradient(148deg, $light 0%, $white08 30%, $white08 70%, $light 100%);
-  filter: drop-shadow(0.3em 0.3em 0.3em $shadow);
+  box-shadow: $containerShadow;
   img {
     width: 100%;
     max-height: 500px;
@@ -41,7 +41,7 @@
   height: 100%;
   font-weight: 200;
   color: white;
-  filter: drop-shadow(0.3em 0.3em 0.3em $shadow);
+  box-shadow: $containerShadow;
 
   h2 {
     font-weight: 200;

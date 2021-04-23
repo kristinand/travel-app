@@ -1,17 +1,15 @@
 import React, { useEffect } from 'react';
-// import classes from './Counry.module.scss';
-import '../../css/countries.scss';
+import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import ImageGallery from 'react-image-gallery';
-import { useTranslation } from 'react-i18next';
+import classes from './Country.module.scss';
 import { IState } from '../../redux/reducers/reducerTypes';
-import { StarRating } from '../../components/StarRating';
-import { Map } from '../../components/Map';
 import Header from '../Header/Header';
-import Footer from '../../components/Footer/Footer';
 import About from '../../components/About/About';
+import Gallery from '../../components/Gallery/Gallery';
 import Video from '../../components/Video/Video.js';
+import Map from '../../components/Map/Map';
+import Footer from '../../components/Footer/Footer';
 
 interface paramTypes {
   ISOCode: string;
@@ -27,49 +25,14 @@ const Countries = () => {
     i18n.changeLanguage(lang);
   }, [lang, i18n]);
 
-  // функция рендера картинок галереи
-  const myRenderItem = (item: { original: string; description: string; originalTitle: string; id: string }) => (
-    <div className="image-gallery-container">
-      <img className="image-gallery-image" src={item.original} alt="img" />
-      <StarRating id={item.id} />
-      <span className="image-gallery-description">{item.description}</span>
-      <p className="image-gallery-title">{item.originalTitle}</p>
-    </div>
-  );
-
-  const images = country.attractions.map((attr) => ({
-    original: `${attr.imageURL}?fit=crop&w=1000`,
-    thumbnail: `${attr.imageURL}?fit=crop&w=100`,
-    description: attr.desc,
-    originalTitle: attr.name,
-    // eslint-disable-next-line no-underscore-dangle
-    id: attr._id,
-    renderItem: myRenderItem,
-  }));
-
   return (
-    <div className="countries">
-      <div className="content-wrapper">
-        <div className="content">
-          <Header inputVisible={false} />
-          <About country={country} lang={lang} />
-
-          <div className="gallery-block">
-            <h2 className="subtitle">{t('title-sights')}</h2>
-            <div className="slider">
-              <ImageGallery items={images} />
-            </div>
-          </div>
-
-          <Video videoURL={country.videoURL} country={country.country} />
-
-          <div className="map">
-            <div>
-              <h2 className="subtitle">{t('title-map')}</h2>
-              <Map coordinates={country.coordinates} code={country.ISOCode} />
-            </div>
-          </div>
-        </div>
+    <div className={classes.countryWrapper}>
+      <div className={classes.country}>
+        <Header inputVisible={false} />
+        <About country={country} lang={lang} />
+        <Gallery attractions={country.attractions} title={t('title-sights')} />
+        <Video videoURL={country.videoURL} country={country.country} />
+        <Map coords={country.coordinates} code={country.ISOCode} title={t('title-map')} />
       </div>
       <Footer />
     </div>

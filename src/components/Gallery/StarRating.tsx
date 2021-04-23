@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import Rate from 'rc-rate/es';
 import { useTranslation } from 'react-i18next';
-import { Api } from '../api/api';
-import { calculateRating, nameRateArray } from '../utils/functions';
+import { Api } from '../../api/api';
+import { calculateRating, nameRateArray } from '../../utils/functions';
 import 'rc-rate/assets/index.css';
-import { IState } from '../redux/reducers/reducerTypes';
+import { IState } from '../../redux/reducers/reducerTypes';
 
 interface Rating {
   id: string;
@@ -15,7 +15,7 @@ interface nameRate {
   rate: number;
 }
 
-export const StarRating = ({ id }: Rating) => {
+const StarRating = ({ id }: Rating) => {
   const [starsValue, setStarsValue] = useState(0);
   const [array, setArray] = useState<nameRate[]>([]);
   const [isToggled, setIsToggled] = useState(false);
@@ -77,3 +77,5 @@ export const StarRating = ({ id }: Rating) => {
     </>
   );
 };
+
+export default StarRating;

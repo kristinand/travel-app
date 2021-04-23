@@ -6,10 +6,7 @@
 }
 
 .title {
-  margin: 1em 0;
-  width: 100%;
-  text-align: center;
-  font-size: 1.6rem;
+  @include title;
 }
 
 .countries {
@@ -27,8 +24,7 @@
   height: 9em;
   position: relative;
   overflow: hidden;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 6px 8px 10px 1px rgba(0, 0, 0, 0.25);
-  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: $containerShadow;
 
   &:hover,
   &:focus {

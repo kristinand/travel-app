@@ -1,4 +1,5 @@
 @import './config.scss';
+@import "~react-image-gallery/styles/scss/image-gallery.scss";
 
 * {
   margin: 0;
@@ -60,4 +61,124 @@ input::placeholder {
 .MuiButtonBase-root.MuiButton-root.MuiButton-text {
   line-height: 1em;
   padding: 0.3em;
+}
+
+.rc-rate-star,
+.rc-rate-star-full {
+  div {
+    outline: none;
+  }
+}
+
+.star-rating .rc-rate {
+  font-size: 2.5em !important;
+}
+
+.image-gallery-slide-wrapper.bottom {
+  box-shadow: $containerShadow;
+}
+
+.image-gallery {
+  .image-gallery-using-mouse {
+    background: transparent;
+  }
+}
+
+.image-gallery-thumbnail {
+  .image-gallery-thumbnail-image {
+    width: auto;
+    max-width: 5.625em;
+    height: 3.125em;
+  }
+}
+
+.image-gallery-thumbnails-wrapper {
+  .bottom {
+    background: transparent;
+  }
+}
+
+.image-gallery-slide .image-gallery-image {
+  max-height: 61.25em;
+}
+
+.image-gallery-container {
+  position: relative;
+
+  img {
+    object-fit: cover;
+  }
+
+  .image-gallery-title {
+    position: absolute;
+    top: 3em;
+    padding: 1em;
+    top: 5%;
+    background: rgba(248, 248, 234, 0.4);
+    width: 100%;
+    color: white;
+    padding: 2em;
+    text-shadow: 0.1875em 0.125em 0.31em rgb(34, 33, 33);
+  }
+
+  .image-gallery-description {
+    position: absolute;
+    bottom: 0;
+    background: rgba(85, 85, 85, 0.4);
+    width: 100%;
+    padding: 0.8em 4em;
+    text-align: left;
+    text-shadow: 0.1875em 0.125em 0.31em rgb(34, 33, 33);
+  }
+}
+.image-gallery-thumbnail.active,
+.image-gallery-thumbnail:hover,
+.image-gallery-thumbnail:focus {
+  border: 0.3em solid $normal;
+}
+.image-gallery-icon:hover {
+  color: $normal;
+}
+
+.star {
+  cursor: pointer;
+  width: 3em;
+  height: 3em;
+  background-color: grey;
+  -webkit-clip-path: polygon(50% 0%, 63% 38%, 100% 38%, 69% 59%, 82% 100%, 50% 75%, 18% 100%, 31% 59%, 0% 38%, 37% 38%);
+  clip-path: polygon(50% 0%, 63% 38%, 100% 38%, 69% 59%, 82% 100%, 50% 75%, 18% 100%, 31% 59%, 0% 38%, 37% 38%);
+  //container
+  &-rating {
+    display: flex;
+    position: absolute;
+    top: 0.5em;
+    left: 3em;
+  }
+}
+
+.show-star {
+  position: absolute;
+  top: 3.5em;
+  left: 3.5em;
+  padding: 0 1em;
+  border: 0;
+  background-color: rgba(238, 238, 238, 0.52);
+  outline: none;
+  cursor: pointer;
+  &_other {
+    position: absolute;
+    top: 8.5em;
+    left: 2em;
+    font-size: 1em;
+    color: white;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    text-shadow: 0.1875em 0.125em 0.31em rgb(34, 33, 33);
+    &_item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
 }

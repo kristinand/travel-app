@@ -1,0 +1,9 @@
+@import '../../styles/config.scss';
+
+.gallery {
+  margin-top: 3em;
+}
+
+.title {
+  @include title;
+}

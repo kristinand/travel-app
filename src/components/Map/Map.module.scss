@@ -1,0 +1,16 @@
+@import '../../styles/config.scss';
+
+.map {
+  margin-top: 3em;
+}
+
+.title {
+  @include title;
+}
+
+.mapContainer {
+  box-shadow: $containerShadow;
+  margin: 0 auto;
+  height: 50vmin;
+  width: 100%;
+}

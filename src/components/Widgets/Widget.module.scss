@@ -8,7 +8,7 @@
   justify-content: center;
   text-align: left;
   font-weight: 200;
-  filter: drop-shadow(0.3em 0.3em 0.3em $shadow);
+  box-shadow: $containerShadow;
   background: linear-gradient(148deg, $light 0%, $normal 30%, $normal 70%, $light 100%);
 }
 

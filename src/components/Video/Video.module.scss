@@ -1,8 +1,8 @@
-$shadow: hsla(27, 12%, 28%, 0.65);
+@import '../../styles/config.scss';
 
 .Video {
+	margin-top: 2em;
 	display: flex;
-	margin-top: 4rem;
 	align-self: center;
-	filter: drop-shadow(0.3rem 0.3rem 0.3rem $shadow);
+	box-shadow: $containerShadow;
 }

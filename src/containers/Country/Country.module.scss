@@ -1,0 +1,12 @@
+@import '../../styles/config.scss';
+
+.countryWrapper {
+  background-image: url('../../assets/img/vecror-wave-country.png');
+  background-repeat: no-repeat;
+}
+
+.country {
+  margin: 0 auto 2em;
+  width: 90vw;
+  max-width: $max-width;
+}
