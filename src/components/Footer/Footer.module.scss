@@ -12,6 +12,13 @@
   gap: 1em;
   font-size: 0.5rem;
   line-height: 3em;
+
+  a {
+    transition: color 0.3s;
+    &:hover {
+      color: plum;
+    }
+  }
 }
 
 .course {

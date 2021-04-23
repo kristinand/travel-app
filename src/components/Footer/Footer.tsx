@@ -14,7 +14,7 @@ const Footer = () => (
       ))}
       <a className={classes.course} href="https://rs.school/js/" target="_blank" rel="noreferrer">
         <img className={classes.courseImage} src="https://rs.school/images/rs_school_js.svg" alt="rsschhol" />
-        <span>/2021</span>
+        /2021
       </a>
     </div>
   </footer>
