@@ -6,7 +6,6 @@ import { Link, useHistory } from 'react-router-dom';
 import { Button, Input } from '@material-ui/core';
 import classes from './Auth.module.scss';
 import Airplane from '../../components/Airplane/Airplane';
-import validation from '../../utils/validation';
 import { Api } from '../../api/api';
 import { setUserData } from '../../redux/actions/actions';
 import { IState } from '../../redux/reducers/reducerTypes';
@@ -60,7 +59,6 @@ const Login = () => {
             value={email}
             onChange={(e) => {
               onChangeHandler(e.target as HTMLInputElement);
-              validation(e, 'email', t('email-rule'));
             }}
           />
           <Input
@@ -71,7 +69,6 @@ const Login = () => {
             inputProps={{ min: 0 }}
             onChange={(e) => {
               onChangeHandler(e.target as HTMLInputElement);
-              validation(e, 'pass', t('pass-rule'));
             }}
           />
           {errors.length > 0 && <p className={classes.helperText}>{errors.join('\r\n').trim()}</p>}

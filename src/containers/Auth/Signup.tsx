@@ -1,28 +1,28 @@
-import React, { useState, useEffect } from "react";
-import classes from "./Auth.module.scss";
-import { Link, useHistory } from "react-router-dom";
-import { Button, Input } from "@material-ui/core";
-import { Api } from "../../api/api";
-import Airplane from "../../components/Airplane/Airplane";
-import validation from "../../utils/validation";
-import { setUserData } from "../../redux/actions/actions";
-import { useDispatch, useSelector } from "react-redux";
+/* eslint-disable react/jsx-one-expression-per-line */
+import React, { useState, useEffect, FormEvent } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { IState } from "../../redux/reducers/reducerTypes";
+import { Link, useHistory } from 'react-router-dom';
+import { Button, Input } from '@material-ui/core';
+import classes from './Auth.module.scss';
+import Airplane from '../../components/Airplane/Airplane';
+import { Api } from '../../api/api';
+import { setUserData } from '../../redux/actions/actions';
+import { IState } from '../../redux/reducers/reducerTypes';
 
 function Signup() {
   const history = useHistory();
   const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-    name: "",
-    photo: "",
+    email: '',
+    password: '',
+    name: '',
+    photo: '',
   });
   const [isFormSubmitted, setIsFormSubmitted] = useState<boolean>(false);
-  const [errors, setErrors] = useState<{ photo: string; password: any; name: string, server: string[] | null }>({
-    photo: "",
-    password: "",
-    name: "",
+  const [errors, setErrors] = useState<{ photo: string; password: any; name: string; server: string[] | null }>({
+    photo: '',
+    password: '',
+    name: '',
     server: null,
   });
   const lang = useSelector((state: IState) => state.lang);
@@ -35,65 +35,57 @@ function Signup() {
 
   const { email, password, name, photo } = formData;
 
-  const onSubmitHandler = async (event: any) => {
+  const onSubmitHandler = async (event: FormEvent) => {
     event.preventDefault();
     setIsFormSubmitted(true);
     if (!errors.password && !errors.photo) {
       setErrors({ ...errors, server: null });
       try {
-        let res = await Api.signup(JSON.stringify(formData));
-        localStorage.setItem("userData", JSON.stringify(res.data));
+        const res = await Api.signup(JSON.stringify(formData));
+        localStorage.setItem('userData', JSON.stringify(res.data));
         dispatch(setUserData(res.data));
-        history.goBack();
-        history.goBack();
+        history.push('/');
       } catch (err) {
-        setErrors({ ...errors, server: err.response.data.errors.map((err: any) => err.msg) });
+        setErrors({ ...errors, server: err.response.data.errors.map((error: any) => error.msg) });
       }
     }
   };
 
-  const onChangeHandler = (event: any) => {
-    const name = event.target.name;
-    const value = event.target.value;
-    setFormData({ ...formData, [name]: value });
+  const onChangeHandler = (target: HTMLInputElement) => {
+    const { name: key, value } = target;
+    setFormData({ ...formData, [key]: value });
 
-    if (name === "password" && value.length < 6) {
+    if (key === 'password' && value.length < 6) {
       setErrors({
-        ...errors, password:
-          t("pass-rule")
+        ...errors,
+        [key]: t('pass-rule'),
       });
-      return;
-    } else if (name === "name" && value.length < 1) {
+    } else if (key === 'name' && value.length < 1) {
       setErrors({
-        ...errors, name:
-          t("name-rule")
+        ...errors,
+        [key]: t('name-rule'),
       });
-      return;
     } else {
-      setErrors({ ...errors, password: "" });
+      setErrors({ ...errors, password: '' });
     }
   };
 
-  const onPhotoLoadHandler = (event: any) => {
-    const file = event.target.files[0];
+  const onPhotoLoadHandler = (files: FileList) => {
+    const file = files[0];
 
-    if (file === undefined) {
-      return;
-    } else if (!file.type.match(/^image\/\w*$/)) {
-      setErrors({ ...errors, photo: t("photo-only") });
-      return;
+    if (file === undefined || !file.type.match(/^image\/\w*$/)) {
+      setErrors({ ...errors, photo: t('photo-only') });
     } else if (file.size / 1024 / 1024 > 1) {
-      setErrors({ ...errors, photo: t("photo-size") });
-      return;
+      setErrors({ ...errors, photo: t('photo-size') });
     } else {
-      setErrors({ ...errors, photo: "" });
+      setErrors({ ...errors, photo: '' });
 
       const reader = new FileReader();
-      reader.onloadend = function () {
-        if (typeof reader.result === "string") {
+      reader.onloadend = () => {
+        if (typeof reader.result === 'string') {
           setFormData({ ...formData, photo: reader.result });
         } else {
-          setFormData({ ...formData, photo: "" });
+          setFormData({ ...formData, photo: '' });
         }
       };
       reader.readAsDataURL(file);
@@ -104,52 +96,60 @@ function Signup() {
     <div className={classes.wrapper}>
       <Airplane />
       <div className={classes.formContainer}>
-        <Button className={classes.backBtn} onClick={() => history.push("/")}>
-          {t("back-to-main")}
+        <Button className={classes.backBtn} onClick={() => history.push('/')}>
+          {t('back-to-main')}
         </Button>
-        <h2>{t("sign-up")}</h2>
+        <h2>{t('sign-up')}</h2>
         <form className={classes.form} onSubmit={onSubmitHandler}>
-          <Input type="text" name="name" placeholder={t("name")} value={name} onChange={onChangeHandler} />
+          <Input
+            type="text"
+            name="name"
+            placeholder={t('name')}
+            value={name}
+            onChange={(e) => onChangeHandler(e.target as HTMLInputElement)}
+          />
 
-          <Input type="email" name="email" placeholder={t("email")} value={email}
+          <Input
+            type="email"
+            name="email"
+            placeholder={t('email')}
+            value={email}
             onChange={(e) => {
-              onChangeHandler(e);
-              validation(e, 'email', t('email-rule'))
+              onChangeHandler(e.target as HTMLInputElement);
             }}
           />
           <Input
             type="password"
             name="password"
-            placeholder={t("pass")}
+            placeholder={t('pass')}
             value={password}
             onChange={(e) => {
-              onChangeHandler(e);
-              validation(e, 'pass', t("pass-rule"))
+              onChangeHandler(e.target as HTMLInputElement);
             }}
           />
-          <div className={classes.uploadBtn} >
+          <div className={classes.uploadBtn}>
             <label htmlFor="upload-photo">
               <input
-                style={{ display: "none" }}
+                style={{ display: 'none' }}
                 id="upload-photo"
                 name="upload-photo"
                 type="file"
                 accept=".jpg, .jpeg, .png"
-                onChange={(event) => onPhotoLoadHandler(event)}
+                onChange={(e) => onPhotoLoadHandler(e.target.files as FileList)}
               />
               <Button variant="outlined" component="span">
-                {t("photo-load")}
+                {t('photo-load')}
               </Button>
-              {photo && <img src={photo} width="50" alt="" title={t("photo-your")} />}
+              {photo && <img src={photo} width="50" alt="" title={t('photo-your')} />}
             </label>
           </div>
           {(errors.password || errors.server || errors.photo) && isFormSubmitted && (
-            <p className={classes.helperText}>{Object.values(errors).join("\r\n")}</p>
+            <p className={classes.helperText}>{Object.values(errors).join('\r\n').trim()}</p>
           )}
-          <Button type="submit">{t("confirm")}</Button>
+          <Button type="submit">{t('confirm')}</Button>
         </form>
         <p className={classes.text}>
-          {t("have-acc")} <Link to="/login">{t("enter")}</Link>
+          {t('have-acc')} <Link to="/login">{t('enter')}</Link>
         </p>
       </div>
     </div>
