@@ -1,6 +1,9 @@
 {
   "name": "travel-app",
   "version": "0.1.0",
+  "engines": {
+    "node": "14.x"
+  },
   "scripts": {
     "start": "node server/server",
     "server": "nodemon server/server",
