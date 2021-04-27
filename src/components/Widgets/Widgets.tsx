@@ -6,7 +6,7 @@ import classes from './Widget.module.scss';
 
 interface Props {
   lang: string;
-  country: {currency: string, timezone: string, coordinates: number[]};
+  country: { currency: string; timezone: string; coordinates: number[] };
 }
 
 function Widgets(props: Props) {
@@ -27,10 +27,10 @@ function Widgets(props: Props) {
 
   useEffect(() => {
     Api.getСurrency(country.currency).then((r) => {
-      const [usd, eur, rub] = r.map((obj) => {
-        // return obj.status === 'fulfilled' ? obj.value.data.rates[country.currency].toFixed(2) : 0;
-        return 0;
-      });
+      // eslint-disable-next-line no-confusing-arrow
+      const [usd, eur, rub] = r.map((obj) =>
+        obj.status === 'fulfilled' ? Object.values(obj.value.data)[0].toFixed(2) : 0
+      );
       setCurrency({
         USD: +usd,
         EUR: +eur,
@@ -44,12 +44,13 @@ function Widgets(props: Props) {
       <div className={[classes.currency, classes.widget].join(' ')}>
         <span>
           {Object.keys(currency).map(
-            (key) => key !== country.currency && (
-              <span key={key}>
-                {`1 ${getSymbolFromCurrency(key)} = ${currency[key]} ${getSymbolFromCurrency(country.currency)}`}
-                <br />
-              </span>
-            ),
+            (key) =>
+              key !== country.currency && (
+                <span key={key}>
+                  {`1 ${getSymbolFromCurrency(key)} = ${currency[key]} ${getSymbolFromCurrency(country.currency)}`}
+                  <br />
+                </span>
+              )
           )}
         </span>
       </div>
