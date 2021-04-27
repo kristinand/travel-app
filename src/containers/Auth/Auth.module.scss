@@ -54,24 +54,41 @@
 }
 
 .form {
+  position: relative;
+  
+  &.signup {
+    height: 35vh;
+    min-height: 18em;
+  }
+
+  &.login {
+    height: 25vh;
+    min-height: 12em;
+  }
+
   div {
-    margin-bottom: 1em;
+    margin-bottom: 0.5em;
     width: 100%;
     font-size: 1em;
   }
 
   button {
-    margin-top: 4em;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
     margin-bottom: 0.5em;
+  }
+
+  p {
+    margin: 0;
+    font-size: 0.75em;
   }
 }
 
 .helperText {
-  margin: 0;
-  position: absolute;
-  color: red;
-  text-align: left;
-  white-space: break-spaces;
+  color: $warning;
+  font-weight: 400;
 }
 
 .uploadBtn {
@@ -81,7 +98,10 @@
     margin: 0.5em auto 0;
   }
   span {
-    font-family: "Montserrat";
     font-size: 0.8em;
   }
+}
+
+.linkText {
+  color: $normal;
 }

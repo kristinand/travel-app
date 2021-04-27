@@ -63,6 +63,12 @@ input::placeholder {
   padding: 0.3em;
 }
 
+.MuiFormHelperText-root.Mui-error {
+  font-family: $font;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
 .image-gallery-slide-wrapper.bottom {
   box-shadow: $containerShadow;
 }
