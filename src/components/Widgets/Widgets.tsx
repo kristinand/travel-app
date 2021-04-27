@@ -9,6 +9,13 @@ interface Props {
   country: { currency: string; timezone: string; coordinates: number[] };
 }
 
+const Currency = ({ rate, value, countryCur }: { rate: string; value: number; countryCur: string }) => (
+  <span key={rate}>
+    {`1 ${getSymbolFromCurrency(rate)} = ${value} ${getSymbolFromCurrency(countryCur)}`}
+    <br />
+  </span>
+);
+
 function Widgets(props: Props) {
   const { lang, country } = props;
 
@@ -27,10 +34,10 @@ function Widgets(props: Props) {
 
   useEffect(() => {
     Api.getСurrency(country.currency).then((r) => {
-      // eslint-disable-next-line no-confusing-arrow
-      const [usd, eur, rub] = r.map((obj) =>
-        obj.status === 'fulfilled' ? Object.values(obj.value.data)[0].toFixed(2) : 0
-      );
+      // eslint-disable-next-line arrow-body-style
+      const [usd, eur, rub] = r.map((obj) => {
+        return obj.status === 'fulfilled' ? Object.values(obj.value.data)[0].toFixed(2) : 0;
+      });
       setCurrency({
         USD: +usd,
         EUR: +eur,
@@ -43,15 +50,9 @@ function Widgets(props: Props) {
     <>
       <div className={[classes.currency, classes.widget].join(' ')}>
         <span>
-          {Object.keys(currency).map(
-            (key) =>
-              key !== country.currency && (
-                <span key={key}>
-                  {`1 ${getSymbolFromCurrency(key)} = ${currency[key]} ${getSymbolFromCurrency(country.currency)}`}
-                  <br />
-                </span>
-              )
-          )}
+          {Object.keys(currency).map((rate) => (
+            <Currency key={rate} rate={rate} value={currency[rate]} countryCur={country.currency} />
+          ))}
         </span>
       </div>
 

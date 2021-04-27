@@ -11,10 +11,8 @@ export const Api = {
   },
 
   getTemperature(coordinates: number[], lang: string): Promise<any> {
-    const weatherURL = 'https://api.openweathermap.org/data/2.5/weather';
-    return axios.get(
-      `${weatherURL}?lat=${coordinates[0]}&lon=${coordinates[1]}&appid=${process.env.REACT_APP_WEATHER_KEY}&units=metric&lang=${lang}`,
-    );
+    const weatherURL = `https://api.openweathermap.org/data/2.5/weather?appid=${process.env.REACT_APP_WEATHER_KEY}`;
+    return axios.get(`${weatherURL}&lat=${coordinates[0]}&lon=${coordinates[1]}&units=metric&lang=${lang}`);
   },
 
   login(body: string): Promise<any> {
@@ -54,8 +52,10 @@ export const Api = {
 };
 
 interface ICurrencyResp {
-  rates: {
-    [key: string]: number;
+  value: {
+    data: {
+      [key: string]: number;
+    }
   };
 }
 
