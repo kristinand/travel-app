@@ -7,7 +7,7 @@ import { IState } from '../../redux/reducers/reducerTypes';
 import Header from '../Header/Header';
 import About from '../../components/About/About';
 import Gallery from '../../components/Gallery/Gallery';
-import Video from '../../components/Video/Video.js';
+import Video from '../../components/Video/Video';
 import Map from '../../components/Map/Map';
 import Footer from '../../components/Footer/Footer';
 
